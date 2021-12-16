@@ -1,0 +1,218 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background: rgb(5, 5, 5);
+}
+
+.Canvas{
+    display: block;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 1;
+
+    animation: fadeAnimation 5s ease-in-out;
+}
+
+.navBar{
+    background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0));
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 115px;
+    z-index: 4;
+
+    animation-name: fadeAnimation;
+    animation-duration: 5s;
+}
+.navBar a{
+    float: left;
+    width: 25%;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+
+    transition: 450ms;
+    -webkit-transition: 450ms;
+    -moz-transition: 450ms;
+    -o-transition: 450ms;
+}
+.navBar a.active{
+    color: hsl(0, 0%, 100%);
+}
+.navBar a:hover, .navBar a:focus{
+    color: hsl(189, 100%, 50%);
+    transform: scale(1.1);
+}
+
+header{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+
+    z-index: 2;
+
+    grid-template-columns: 15% auto 15% ;
+    grid-template-rows: 33.3% 33.3%  auto;
+}
+
+header svg{
+    grid-column: 2;
+    grid-row: 2;
+
+    z-index: 2;
+
+    /* opacity: 0; */
+    
+    /* animation-name: fadeOutAnimation;
+    animation-duration: 7s; */
+}
+.logo{
+    stroke-dasharray: 500;
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+    stroke-width: 0.1;
+
+    fill: #ffffff;
+
+    animation: 7s draw cubic-bezier(.45,.05,.55,.95),
+                4s draw-color cubic-bezier(.45,.05,.55,.95);
+}
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 500;
+        stroke-opacity: 1;
+    }
+    17% {
+
+        stroke-dashoffset: 500;
+        stroke-opacity: 1;
+    }
+    100% {
+        stroke-opacity: 1;
+    }
+}
+@keyframes draw-color {
+    0% {
+
+        fill: #000;
+    }
+
+    75% {
+
+        fill: #000;
+    }
+
+    100% {
+
+        fill: #fff;
+    }
+}
+
+.arrowContaner{
+    grid-column: 2;
+    grid-row: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+}
+.arrowContaner div{
+    width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 23px solid #ffffff;
+
+    animation-name: fadeAnimation;
+    animation-duration: 6s;
+}
+
+main{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 15% auto 15%;
+
+    z-index: 2;
+}
+main p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: white;
+
+    grid-column: 2;
+
+    animation: fadeAnimation 5s ease-in-out;
+
+    z-index: 2;
+}
+.mainTitle{
+    font-family: 'STIX Two Math', serif;
+    font-size: max(3.75vw , 30px);
+    color: white;
+
+    grid-column: 2;
+    
+    padding-top: 15px;
+
+    margin-bottom: 15px;
+
+    animation: fadeAnimation 5s ease-in-out;
+
+    z-index: 2;
+}
+main a{
+    text-decoration: none;
+    color:white;
+    transition: 250ms;
+}
+main a:hover, a:focus{
+    color: rgb(0, 242, 250);
+}
+
+footer{
+    display: flex;
+    margin-top: 150px;
+    padding: 25px 0;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+@media screen and (max-width: 650px){
+    .navBar{
+        overflow: hidden;
+        position: fixed;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0));
+    }
+}
+
+@keyframes fadeAnimation{
+    0%   {opacity: 0;}
+    90%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOutAnimation{
+    0%   {opacity: 1;}
+    95%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+::-webkit-scrollbar {   width: 10px;  }
+::-webkit-scrollbar-track {  background: #070707;  }
+::-webkit-scrollbar-thumb {  background: #161616; transition: 350ms;  }
+::-webkit-scrollbar-thumb:hover {  background: #1f1f1f;  }

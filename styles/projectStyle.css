@@ -1,0 +1,199 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background: rgb(5, 5, 5);
+}
+
+.Canvas{
+    display: block;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 1;
+    
+    animation-name: fadeAnimation;
+    animation-duration: 3s;
+}
+
+.navBar{
+    background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0));
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 115px;
+    z-index: 4;
+
+    animation-name: fadeAnimation;
+    animation-duration: 3s;
+}
+.navBar a{
+    float: left;
+    width: 25%;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+
+    transition: 450ms;
+    -webkit-transition: 450ms;
+    -moz-transition: 450ms;
+    -o-transition: 450ms;
+}
+.navBar a.active{
+    color: hsl(0, 0%, 100%);
+}
+.navBar a:hover, .navBar a:focus{
+    color: hsl(189, 100%, 50%);
+    transform: scale(1.1);
+}
+
+header{
+    display: grid;
+    width: 100%;
+    height: 300px;
+    grid-template-columns: 15% auto 15% ;
+    grid-template-rows: 33.3% 33.3%  auto;
+}
+.headerTitle{
+    font-family: 'STIX Two Math', serif;
+    font-size: max(4vw , 40px);
+    color: white;
+
+    grid-column: 2;
+    grid-row: 2;
+    
+    display: flex;
+    align-items: center;
+
+    animation-name: fadeAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+
+    z-index: 3;
+}
+
+header p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    color: white;
+
+    grid-column: 2;
+    grid-row: 3;
+
+    z-index: 1;
+
+    animation-name: fadeAnimation;
+    animation-duration: 3s;
+}
+
+ul{
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: auto;
+    column-gap: 15px;
+    row-gap: 15px;
+
+    z-index: 2;
+}
+
+.card{
+    position: relative;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.3141s;
+
+    animation-name: fadeAnimation;
+    animation-duration: 3s;
+}
+.card img{
+    width:100%;
+}
+.view{
+
+    width: 100%;
+    display: block;
+    
+    padding: 5% 0;
+
+    position: absolute;
+
+    bottom: 0;
+
+    margin-bottom: 0;
+    
+    border: none;
+    background-color: rgb(70, 70, 70);
+    
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 110%;
+    text-align: center;
+    text-decoration: none;
+
+    transition: 0.3141s;
+}
+.view:hover{
+    background-color: rgb(0,71,240);
+}
+
+.title{
+    padding: 0 7%;
+
+    font-family: 'STIX Two Math', serif;
+    font-size: 150%;
+}
+.text{
+    padding: 0 7%;
+    margin-bottom: 30%;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 112%;
+    text-align: justify;
+}
+
+@media screen and (max-width: 750px){
+    .navBar{
+        overflow: hidden;
+        position: fixed;
+        height: auto;
+        top: auto;
+        bottom: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0));
+    }
+
+    ul{
+        grid-template-columns: 100%;
+    }
+}
+
+footer{
+    display: flex;
+    margin-top: 150px;
+    padding: 25px 0;
+    justify-content: center;
+}
+
+@keyframes fadeAnimation{
+    0%   {opacity: 0;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+::-webkit-scrollbar {   width: 10px;  }
+::-webkit-scrollbar-track {  background: #070707;  }
+::-webkit-scrollbar-thumb {  background: #161616; transition: 350ms;  }
+::-webkit-scrollbar-thumb:hover {  background: #1f1f1f;  }
