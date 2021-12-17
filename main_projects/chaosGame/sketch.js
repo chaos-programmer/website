@@ -84,12 +84,12 @@ function setup(){
 
     noOfAnchores = createDiv("No of Anchores: ");
     noOfAnchores.parent(controlPanel);
-    noOfAnchoresIn = createInput(group[current].anchor.length);
+    noOfAnchoresIn = createInput(group[current].anchor.length, "number");
     noOfAnchoresIn.parent(controlPanel);
 
     travelDist = createDiv("Jump Dist: ");
     travelDist.parent(controlPanel);
-    travelDistIn = createInput(group[current].dist);
+    travelDistIn = createInput(group[current].dist, "number");
     travelDistIn.parent(controlPanel);
     
     let br = createElement('br');
