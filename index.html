@@ -17,27 +17,36 @@
 
             $(document).ready(function() {
 
-                
+                $("a").click(function(event){
 
-                // if(){
-                    $("a").click(function(event){
+                    if("arrow" != $(this).attr("id")){
 
-                        if("arrow" != $(this).attr("id")){
+                        event.preventDefault();
 
-                            event.preventDefault();
+                        linkLocation = this.href;  
 
-                            linkLocation = this.href;  
+                        $("body").fadeOut();
 
-                            $("body").fadeOut();
-            
-                            setTimeout(function () {
-                            
-                                window.location = linkLocation;
-                            }, 1000);
-                        }
-                    });
-                // }
+                        setTimeout(function () {
+
+                            window.location = linkLocation;
+                        }, 1000);
+                    }
+                });
             });
+        </script>
+        <script>
+
+            window.addEventListener( "pageshow", function ( event ) {
+                var historyTraversal = event.persisted || 
+                                        ( typeof window.performance != "undefined" && 
+                                            window.performance.navigation.type === 2 );
+                if ( historyTraversal ) {
+                    // Handle page restore.
+                    window.location.reload();
+                }
+            });
+
         </script>
     </head>
     <body>
