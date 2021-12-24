@@ -1,42 +1,40 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	background: rgb(5, 5, 5);
+:root{
+
+    --bg: rgb(0,10,28);
+    --font: #ffffff;
 }
 
-.Canvas{
-    display: block;
+html, body {
+
     margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 1;
-    
-    animation-name: fadeAnimation;
-    animation-duration: 3s;
+	padding: 0;
+	background: var(--bg);
+    scroll-behavior: smooth;
 }
 
 .navBar{
-    background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0));
+    background-image: linear-gradient(var(--bg), rgba(0, 10, 28, 0.9), rgba(0, 10, 28, 0.8), transparent);
+    /* background: var(--bg); */
 
     position: fixed;
     top: 0;
     width: 100%;
-    height: 115px;
+    height: auto;
     z-index: 4;
 
     animation-name: fadeAnimation;
-    animation-duration: 3s;
+    animation-duration: 5s;
 }
 .navBar a{
     float: left;
     width: 25%;
     padding: 15px 0;
 
+    position: relative;
+
     text-align: center;
     text-decoration: none;
-    color: rgb(177, 177, 177);
+    color: rgb(218, 218, 218);
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
 
@@ -49,8 +47,10 @@ html, body {
     color: hsl(0, 0%, 100%);
 }
 .navBar a:hover, .navBar a:focus{
-    color: hsl(189, 100%, 50%);
-    transform: scale(1.1);
+    color: rgb(66, 101, 255);
+    transform: scale(1.2);
+    text-decoration: none;
+    outline: none;
 }
 
 header{
@@ -61,8 +61,8 @@ header{
     grid-template-rows: 33.3% 33.3%  auto;
 }
 .headerTitle{
-    font-family: 'STIX Two Math', serif;
-    font-size: max(4vw , 40px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 250%;
     color: white;
 
     grid-column: 2;
@@ -106,9 +106,17 @@ ul{
     z-index: 2;
 }
 
+hr{
+
+    width: 90%;
+    background-color: var(--font);
+    border-color: var(--font);
+    border-style: solid;
+}
+
 .card{
     position: relative;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(8, 14, 68);
     color: white;
     width: 100%;
     height: 100%;
@@ -116,8 +124,19 @@ ul{
     overflow: hidden;
     transition: 0.3141s;
 
+    box-shadow: 0 0 rgba(0, 0, 0, 0.596),
+                0 0 rgba(0, 0, 0, 0.596);
+
     animation-name: fadeAnimation;
     animation-duration: 3s;
+}
+.card:hover{
+
+    transform: scale(1.025);
+
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.596),
+                -10px 10px 25px rgba(0, 0, 0, 0.596);
+
 }
 .card img{
     width:100%;
@@ -136,43 +155,52 @@ ul{
     margin-bottom: 0;
     
     border: none;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(28, 96, 255);
     
-    color: white;
+    color: var(--font);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 110%;
+    font-size: 125%;
     text-align: center;
     text-decoration: none;
 
     transition: 0.3141s;
 }
-.view:hover{
-    background-color: rgb(0,71,240);
+.view:hover, .view:focus{
+    background-color: white;
+    color: black;
+
+    outline: none;
 }
 
 .title{
-    padding: 0 7%;
+    padding: 0 5%;
 
-    font-family: 'STIX Two Math', serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 150%;
 }
 .text{
     padding: 0 7%;
-    margin-bottom: 30%;
+    margin-bottom: 40%;
 
     font-family: 'Courier New', Courier, monospace;
     font-size: 112%;
     text-align: justify;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 850px){
+    ul{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media screen and (max-width: 600px){
     .navBar{
         overflow: hidden;
         position: fixed;
         height: auto;
         top: auto;
         bottom: 0;
-        background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0));
+        background-image: linear-gradient(transparent, var(--bg), var(--bg), var(--bg));
     }
 
     ul{
@@ -194,6 +222,6 @@ footer{
 }
 
 ::-webkit-scrollbar {   width: 10px;  }
-::-webkit-scrollbar-track {  background: #070707;  }
-::-webkit-scrollbar-thumb {  background: #161616; transition: 350ms;  }
-::-webkit-scrollbar-thumb:hover {  background: #1f1f1f;  }
+::-webkit-scrollbar-track {  background: var(--bg); }
+::-webkit-scrollbar-thumb {  background: rgb(0, 22, 65); }
+::-webkit-scrollbar-thumb:hover {  background: rgb(2, 32, 94) }
