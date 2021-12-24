@@ -23,7 +23,7 @@ html, body {
     z-index: 4;
 
     animation-name: fadeAnimation;
-    animation-duration: 5s;
+    animation-duration: 3s;
 }
 .navBar a{
     float: left;
