@@ -16,8 +16,6 @@
 
             $(document).ready(function() {
 
-                $("body").fadeIn();
-
                 $("a").click(function(event){
 
                     event.preventDefault();
@@ -29,10 +27,17 @@
                     setTimeout(function () {
                         
                         window.location = linkLocation;
-                        $("body").fadeIn();
                     }, 1000);
                 });
             });
+        </script>
+
+        <script>
+            var perfEntries = performance.getEntriesByType("navigation");
+
+            if (perfEntries[0].type === "back_forward") {
+                location.reload(true);
+            }
         </script>
 
         <title>Chaos Programmer - projects</title>
