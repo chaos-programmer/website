@@ -1,28 +1,29 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	background: rgb(5, 5, 5);
+:root{
+
+    --bg: rgb(0,10,28);
+    --font: #ffffff;
+    --blue: rgb(66, 101, 255);
+
+    --typeVel: 1s;
+    --typeWait: 1.9s;
 }
 
-.Canvas{
-    display: block;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 1;
+html, body {
 
-    animation: fadeAnimation 5s ease-in-out;
+    margin: 0;
+	padding: 0;
+	background: var(--bg);
+    scroll-behavior: smooth;
 }
 
 .navBar{
-    background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0));
+    background-image: linear-gradient(var(--bg), rgba(0, 10, 28, 0.9), rgba(0, 10, 28, 0.8), transparent);
+    /* background: var(--bg); */
 
     position: fixed;
     top: 0;
     width: 100%;
-    height: 115px;
+    height: auto;
     z-index: 4;
 
     animation-name: fadeAnimation;
@@ -35,7 +36,7 @@ html, body {
 
     text-align: center;
     text-decoration: none;
-    color: rgb(177, 177, 177);
+    color: rgb(218, 218, 218);
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
 
@@ -48,8 +49,10 @@ html, body {
     color: hsl(0, 0%, 100%);
 }
 .navBar a:hover, .navBar a:focus{
-    color: hsl(189, 100%, 50%);
-    transform: scale(1.1);
+    color: var(--blue);
+    transform: scale(1.2);
+    text-decoration: none;
+    outline: none;
 }
 
 header{
@@ -57,66 +60,68 @@ header{
     width: 100%;
     height: 100vh;
 
-    z-index: 2;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
 
-    grid-template-columns: 15% auto 15% ;
-    grid-template-rows: 33.3% 33.3%  auto;
+    place-content: center;
 }
 
-header svg{
+h1{
+    position: relative;
+
+    width: max-content;
+    height: max-content;
+
     grid-column: 2;
     grid-row: 2;
 
-    z-index: 2;
+    margin: none;
 
-    /* opacity: 0; */
+    font-size: 7.1vw;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    color: var(--font);
+}
+h1::before,
+h1::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+h1::before{
+
+    background-color: var(--bg);
+
+    animation: typewriter var(--typeVel) var(--typeWait) steps(16) forwards;
+}
+h1::after{
+
+    background-color: transparent;
+
+    width: 0.05em;
+
+    animation: typewriter var(--typeVel) var(--typeWait) steps(16) forwards,
+               typewritercursor 1s cubic-bezier(1,-1.88,0,2.47) /*(1,-0.62,0,1.54)*/ infinite;
+}
+@keyframes typewriter {
     
-    /* animation-name: fadeOutAnimation;
-    animation-duration: 7s; */
-}
-.logo{
-    stroke-dasharray: 500;
-    stroke-dashoffset: 0;
-    stroke-opacity: 1;
-    stroke-width: 0.1;
-
-    fill: #ffffff;
-
-    animation: 7s draw cubic-bezier(.45,.05,.55,.95),
-                4s draw-color cubic-bezier(.45,.05,.55,.95);
-}
-@keyframes draw {
-    0% {
-        stroke-dashoffset: 500;
-        stroke-opacity: 1;
-    }
-    17% {
-
-        stroke-dashoffset: 500;
-        stroke-opacity: 1;
-    }
-    100% {
-        stroke-opacity: 1;
+    to{
+        left: 100%;
     }
 }
-@keyframes draw-color {
-    0% {
+@keyframes typewritercursor {
 
-        fill: #000;
-    }
+    to{
 
-    75% {
-
-        fill: #000;
-    }
-
-    100% {
-
-        fill: #fff;
+        background-color: var(--font);
     }
 }
 
-.arrowContaner{
+#arrowContaner{
     grid-column: 2;
     grid-row: 3;
 
@@ -125,17 +130,24 @@ header svg{
     justify-content: center;
 
     z-index: 2;
-
 }
-.arrowContaner div{
+#arrow{
     width: 0;
 	height: 0;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 23px solid #ffffff;
+	border-top: 23px solid var(--font);
 
     animation-name: fadeAnimation;
-    animation-duration: 6s;
+    animation-duration: 5s;
+
+    transition: 250ms;
+}
+#arrow:hover, #arrow:focus{
+
+	border-top: 23px solid var(--blue);
+    transform: scale(1.2);
+    outline: none;
 }
 
 main{
@@ -148,7 +160,7 @@ main{
 main p{
     font-family: 'Courier New', Courier, monospace;
     font-size: 17px;
-    color: white;
+    color: var(--font);
 
     grid-column: 2;
 
@@ -157,9 +169,9 @@ main p{
     z-index: 2;
 }
 .mainTitle{
-    font-family: 'STIX Two Math', serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: max(3.75vw , 30px);
-    color: white;
+    color: var(--font);
 
     grid-column: 2;
     
@@ -173,11 +185,15 @@ main p{
 }
 main a{
     text-decoration: none;
-    color:white;
+    color: var(--font);
     transition: 250ms;
 }
 main a:hover, a:focus{
-    color: rgb(0, 242, 250);
+    color: var(--blue);
+
+    text-decoration: underline;
+
+    outline: none;
 }
 
 footer{
@@ -196,7 +212,7 @@ footer{
         height: auto;
         top: auto;
         bottom: 0;
-        background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0),rgb(0, 0, 0));
+        background-image: linear-gradient(transparent, var(--bg), var(--bg), var(--bg));
     }
 }
 
@@ -213,6 +229,6 @@ footer{
 }
 
 ::-webkit-scrollbar {   width: 10px;  }
-::-webkit-scrollbar-track {  background: #070707;  }
-::-webkit-scrollbar-thumb {  background: #161616; transition: 350ms;  }
-::-webkit-scrollbar-thumb:hover {  background: #1f1f1f;  }
+::-webkit-scrollbar-track {  background: var(--bg); }
+::-webkit-scrollbar-thumb {  background: rgb(0, 22, 65); }
+::-webkit-scrollbar-thumb:hover {  background: rgb(2, 32, 94) }
